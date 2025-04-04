@@ -1,5 +1,7 @@
 package CS3330_Group_Assignment_3;
 
+import javax.sound.midi.*;
+
 public class MidiEventData {
 	private int startEndTick, velocity, note, channel, noteOnOff;
 	private int instrument;
@@ -13,4 +15,52 @@ public class MidiEventData {
 		this.noteOnOff = noteOnOff;
 	}
 	
+	public int getStartEndTick() {
+		return startEndTick;
+	}
+	
+	public void setStartEndTick(int newStartEndTick) {
+		this.startEndTick = newStartEndTick;
+	}
+	
+	public int getVelocity() {
+		return velocity;
+	}
+	
+	public void setVelocity(int newVelocity) {
+		this.velocity = newVelocity;
+	}
+	
+	public int getNote() {
+		return note;
+	}
+	
+	public void setNote(int newNote) {
+		this.note = newNote;
+	}
+	
+	public int getChannel() {
+		return channel;
+	}
+	
+	public void setChannel(int newChannel) {
+		this.channel = newChannel;
+	}
+	
+	public int getNoteOnOff() {
+		return noteOnOff;
+	}
+	
+	public void setNoteOnOff(int newNoteOnOff) {
+		this.noteOnOff = newNoteOnOff;
+	}
+	public int getInstrument() {
+		return instrument;
+	}
+	
+	public void setInstrument(int newInstrument) {
+		this.instrument = newInstrument;
+	}
 }
+
+

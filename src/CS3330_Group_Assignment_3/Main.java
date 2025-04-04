@@ -11,16 +11,27 @@ public class Main {
 			Sequence sequence = new Sequence(Sequence.PPQ, 384);
 			Track track = sequence.createTrack();
 			
-			MidiEventFactoryAbstract factoryAbstract = new LegatoMidiEventFactoryAbstract();
+			MidiEventFactoryAbstract factoryAbstract = new StaccatoMidiEventFactoryAbstract();
 			
 			MidiEventFactory factory = factoryAbstract.createFactory();
 			
+			PitchStrategy pitchStrategy = new LowerPitchStrategy();
+			
+			InstrumentStrategy instrumentStrategy = new ElectricBassGuitarStrategy();
+			instrumentStrategy.applyInsturment(track, 0);
+			instrumentStrategy.applyInsturment(track, 1);
+			instrumentStrategy.applyInsturment(track, 2);
+			instrumentStrategy.applyInsturment(track, 3);
+			instrumentStrategy.applyInsturment(track, 4);
+			
 			for(MidiEventData event : midiEvents) {
+				int modifiedNote = pitchStrategy.modifyPitch(event.getNote());
+				modifiedNote = pitchStrategy.modifyPitch(modifiedNote);
 				if(event.getNoteOnOff() == ShortMessage.NOTE_ON) {
-					track.add(factory.createNoteOn(event.getStartEndTick(), event.getNote(), event.getVelocity(), event.getChannel()));
+					track.add(factory.createNoteOn(event.getStartEndTick(), modifiedNote, event.getVelocity(), event.getChannel()));
 				}
 				else {
-					track.add(factory.createNoteOff(event.getStartEndTick(), event.getNote(), event.getChannel()));
+					track.add(factory.createNoteOff(event.getStartEndTick(), modifiedNote, event.getChannel()));
 				}
 			}
 			

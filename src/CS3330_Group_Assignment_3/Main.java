@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 import javax.sound.midi.*;
 
-
+/**
+ * Main class, allows users to select Rhythm type, do pitch adjustments, and select instruments for each channel for a given midi song
+ */
 public class Main {
 	public static void main(String[] args) {
 		try {

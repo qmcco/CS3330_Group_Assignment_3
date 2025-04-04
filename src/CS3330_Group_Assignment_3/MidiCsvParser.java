@@ -1,6 +1,7 @@
 package CS3330_Group_Assignment_3;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,19 @@ import java.util.Scanner;
 
 import javax.sound.midi.ShortMessage;
 
+/**
+ * parses a given CSV of a predetermined layout, in which each line contains six elements of type int, barring the second element of each line
+ * which is a string and is used to determine the int value that a field should be assigned
+ */
 public class MidiCsvParser {
+	/**
+	 * Method produces a list of MidiEventData elements, by creating a MidiEventData element using the information stored in each
+	 * line of a given CSV file. Each line is taken and split by the commas present into 6 unique elements, 5 of which are directly
+	 * cast as ints and assigned to their respective fields, and another is used as a string to determine what value should be assigned to
+	 * a field
+	 * @param filePath, the filePath of the csv that ought to be parsed
+	 * @return a list of MidiEventData elements
+	 */
 	public static List<MidiEventData> parseCsv(String filePath){
 		List<MidiEventData> midiEvents = new ArrayList<MidiEventData>();
 		File file = new File(filePath);
@@ -40,7 +53,6 @@ public class MidiCsvParser {
 			}
 			scanner.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return midiEvents;

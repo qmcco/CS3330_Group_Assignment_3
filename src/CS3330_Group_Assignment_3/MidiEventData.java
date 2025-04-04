@@ -1,7 +1,10 @@
 package CS3330_Group_Assignment_3;
 
 import javax.sound.midi.*;
-
+/**
+ * Represents a unique data type to store the values pertaining to a specific MidiEvent in a midi song
+ * Class contains getters and setters for all elements to allow for their modification
+ */
 public class MidiEventData {
 	private int startEndTick, velocity, note, channel, noteOnOff;
 	private int instrument;

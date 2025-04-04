@@ -26,7 +26,6 @@ public class MidiCsvParser {
 				tempStringArr = scanner.nextLine().split("\\s*,\\s*");
 				tempStartEndTick = Integer.parseInt(tempStringArr[0]);
 				tempInstrument = Integer.parseInt(tempStringArr[5]);
-				System.out.println(tempInstrument);
 				tempVelocity = Integer.parseInt(tempStringArr[4]);
 				tempNote = Integer.parseInt(tempStringArr[3]);
 				tempChannel = Integer.parseInt(tempStringArr[2]);
